@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+            {{#each mensajes}} 
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong> {{text}} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {{/each}} 
+        <div class="card">
+            <div class="card-header">
+                Nuevo Producto
+            </div>
+            <div class="card-body">
+                <form action="/producto/nuevo" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{nombre}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="codigo_barra" placeholder="Codigo de barra" value="{{codigo_barra}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="precio" placeholder="Precio" value="{{precio}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="cantidad" placeholder="Cantidad" value="{{cantidad}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="marca" placeholder="Marca" value="{{marca}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="rubro" placeholder="Rubro" value="{{rubro}}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

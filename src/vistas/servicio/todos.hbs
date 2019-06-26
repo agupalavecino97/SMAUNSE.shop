@@ -1,0 +1,28 @@
+{{#each mensajes}} 
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong> {{text}} </strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/each}} 
+
+<h3>Listado de Servicios</h3>
+<div class"table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+            </tr>
+            {{#each servicios}}
+            <tbody>
+                   <td>{{id}}</td>
+                   <td>{{nombre}}</td>
+                   <td>{{descripcion}}</td>
+            </tbody>
+            {{/each}}
+        </thead>
+    </table>
+</div>

@@ -1,0 +1,23 @@
+Servicios:
+    optica:
+        Rubros:
+            anteojos
+            lentes
+            repuestos
+    regaleria:
+        Rubros:
+            bebes
+            nenes
+            adolecentes
+            adultos
+    perfumeria:
+        Rubros:
+            hombre
+            mujer
+            nenes
+
+
+Estado de la venta:
+                    Carrito
+                    Pendiente
+                    Pagada

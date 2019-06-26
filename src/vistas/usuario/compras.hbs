@@ -1,0 +1,52 @@
+{{#if ventas}}
+    <div class="container" style="margin-top: 20px">
+        <div class="card">
+            <table class="table table-hove">
+                <thead class="text-muted">
+                    <tr>
+                        <th scope="col" width="120">Metodo de Envio</th>
+                        <th scope="col" width="120">Direccion</th>
+                        {{!-- <th scope="col" width="120">Forma de pago</th> --}}
+                        <th scope="col" width="120">Fecha</th>
+                        <th scope="col" width="120">Monto pagado</th>
+                        <th scope="col" width="120"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each ventas}}
+                    <tr>  
+                        <td>
+                            <h4 class="title">{{metodoDeEnvio}}</h4>
+                        </td>
+                        <td>
+                            <h4 class="title">{{direccion}}</h4>
+                        </td>
+                        {{!-- <td>
+                            <h4 class="title">forma_de_pago</h4>
+                        </td> --}}
+                        <td>
+                            <h4 class="title">{{fecha}}</h4>
+                        </td>
+                        <td>
+                            <h4 class="title"> $ {{monto}}</h4>
+                        </td>
+                        <td>
+                            <form action="/usuario/comra/detalle/{{id}}" method="get">
+                                <button type="submit" class="btn btn-outline-info" class="btn-sm"> Ver detalle</button>
+                            </form>          
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{else}}
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <p class="lead">Aun no tienes compras concretadas</p>
+            </div>
+        </div>
+    </div>
+{{/if}}

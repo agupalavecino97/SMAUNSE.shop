@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+            {{#each mensajes}} 
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong> {{text}} </strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {{/each}} 
+        <div class="card">
+            <div class="card-header">
+                Nueva Marca
+            </div>
+            <div class="card-body">
+                <form action="/marca/nuevo" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{nombre}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text-area" class="form-control" name="descripcion" placeholder="Descripcion" value="{{descripcion}}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
