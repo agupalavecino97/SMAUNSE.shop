@@ -27,7 +27,8 @@
                         <td>
                             <form action="/usuario/carrito/modificar/{{id}}" method="POST">
                                 <input type="number" class="form-control" name="cantidad" min="1" step="1" value="{{cantidad}}"> 
-                                <button type="submit" class="btn btn-outline-warning" class="btn-sm"> Modificar</button>                            </form>
+                                <button type="submit" class="btn btn-outline-warning" class="btn-sm"> Modificar</button>           
+                            </form>
                         </td>
                         <td>
                             <h4 class="title"> $ {{precio_venta}}</h4>
@@ -52,7 +53,7 @@
             </div>
         </div>
         <div style="margin-top:10px; margin-left:1000px"> 
-            <a href="/usuario/envio_pago" type="submit" class="btn btn-primary ml-auto">Comprar</a>
+            <a href="/usuario/envio_pago" type="submit" class="btn btn-lg btn-primary text-uppercase">Comprar</a>
         </div> 
     </div>
  

@@ -1,63 +1,78 @@
-<form action="/usuario/envio_pago" method="POST">
-    <div class="container">
-    <div class="row vdivide">
-        <div class="col-sm-6 text-center jumbotron mt-6">
-            <h2>Opciones de Envio</h2>
-            <div class="container"> 
-                <select name="metodoDeEnvio" class="form-control" id="select" required>
-                    <option selected>Metodo de envio</option>
-                    <option value="domicilio">A domicilio</option>
-                    <option value="local">Retirar del local</option>
-                </select>
-                <div  id="direccion"  style="display:none;">
-                    <h4  class="text-left">Ingrese una direccion</h4>
-                        <input type="text" class="form-control " name="direccion" value="{{user.direccion}}"> 
-                    
+<form action="/usuario/envio_pago" method="POST"></form>
+   <div class="container">
+    <div class="row " style="padding: 30px">
+        <div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
+            <div class="card card-signin my-6">
+                <div class="card-body">
+                <h5 class="card-title text-center">Opciones de envio</h5>
+                    <select name="metodoDeEnvio" class="form-control" id="select" required autofocus>
+                        <option selected >Metodo de envio</option>
+                        <option value="domicilio">A domicilio</option>
+                        <option value="local">Retirar del local</option>
+                    </select>
+                    <div class="form-label-group" id="direccion"  style="display:none;">
+                            <input type="text" id="direccion2" class="form-control " name="direccion" value="{{user.direccion}}"> 
+                            <label for="direccion2">Direccion</label>           
+                    </div>
+                    <script>
+                            $('#select').on('change', function() {
+                                if(this.value == "domicilio") {
+                                    $('#direccion').show();
+                                }else{
+                                    $('#direccion').hide();
+                                }
+                            });    
+                    </script> 
                 </div>
-                <script>
-                    $('#select').on('change', function() {
-                        if(this.value == "domicilio") {
-                            $('#direccion').show();
-                        }else{
-                            $('#direccion').hide();
-                        }
-                    });    
-                </script>
+             </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 mx-auto">
+            <div class="card card-signin my-6">
+            <div class="card-body">
+                <h5 class="card-title text-center">Opciones de Pago</h5>
+                <div class="form-label-group">
+                    <select name="pago" class="form-control" id="select2" required>
+                        <option selected>Metodo de Pago</option>
+                        <option value="tarjeta">Tarjeta de Credito</option>
+                        <option> Mercado Pago</option>
+                        <option> Descuento por planilla</option>
+                    </select>
+                </div>
+                <div id="datos_tarjeta"  style="display:none;">
+                    <div class="form-label-group">
+                        <input type="text" class="form-control" id="nombre"name="nombre" placeholder="Nombre y apellido del tiutlar de la tarjeta" required>
+                        <label for="nombre">Nombre y apellido del tiutlar de la tarjeta</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" class="form-control" id="numero" name="numero_tarjeta" placeholder="Numero de Tarjeta" required>
+                        <label for="numero">Numero de Tarjeta</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="text" class="form-control" id="fecha" name="vencimiento" placeholder="Fecha de vencimiento" required>
+                        <label for="fecha">Fecha de vencimiento</label>
+                    </div>
+                    <div class="form-label-group">
+                        <input type="number" class="form-control" id="cuotas" name="cuotas" min="1" placeholder="Ingrese la cantidad de cuotas" step="1" value="1" required> 
+                        <label for="cuotas">Cantiad de cuotas</label>
+                    </div>
+                </div>
+                    <script>
+                        $('#select2').on('change', function() {
+                            //  alert( this.value ); // or $(this).val()
+                            if(this.value == "tarjeta") {
+                                $('#datos_tarjeta').show();
+                            }else{
+                                $('#datos_tarjeta').hide();
+                            }
+                        });    
+                    </script>
+            </div>
             </div>
         </div>
-        <div class="col-sm-6 text-center jumbotron mt-6">
-            <h2>Opciones de Pago</h2>
-            <div class="container"> 
-                <select name="pago" class="form-control" id="select2" required>
-                    <option selected>Metodo de Pago</option>
-                    <option value="tarjeta">Tarjeta de Credito</option>
-                    <option> Mercado Pago</option>
-                    <option> Descuento por planilla</option>
-                </select>
-                <div  id="datos_tarjeta"  style="display:none;">
-                    <h4 class="text-left">Ingrese los datos de la tarjeta</h4>
-                    <input type="text" class="form-control" name="nombre" placeholder="Nombre y apellido del tiutlar de la tarjeta" required>
-                    <input type="text" class="form-control" name="numero_tarjeta" placeholder="Numero de Tarjeta" required>
-                    <input type="text" class="form-control" name="vencimiento" placeholder="Fecha de vencimiento" required>
-                    <div>
-                        <h6>Catidad de cuotas</h6>
-                        <input type="number" class="form-control" name="cuotas" min="1" placeholder="Ingrese la cantidad de cuotas" step="1" value="1" required> 
-                    </div>
-                    
-                </div>
-                <script>
-                    $('#select2').on('change', function() {
-                        //  alert( this.value ); // or $(this).val()
-                        if(this.value == "tarjeta") {
-                            $('#datos_tarjeta').show();
-                        }else{
-                            $('#datos_tarjeta').hide();
-                        }
-                    });    
-                </script>
-            </div>
     </div>
-    <div style="margin-top:10px; margin-left:1000px">
-            <button type="submit" class="btn btn-primary">Continuar</button>
-    </div>
+  </div>
+  <div style="margin-top:10px; margin-left:1000px"> 
+    <button type="submit" class="btn btn-lg btn-primary text-uppercase">Continuar</button>   
+  </div> 
+ 
 </form>
