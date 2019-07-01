@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Producto = require('../models/Producto');
 const Rubro = require('../models/Rubro');
+const Servicio = require('../models/Servicio');
 const Marca = require('../models/Marca');
 const Venta = require('../models/Venta');
 const VentaProducto = require('../models/Venta-Producto');
@@ -12,18 +13,64 @@ router.get('/producto/todos/:rubro',async(req, res)=>{
     if(rubro){
         const id_rubro = rubro.id;
         const productos = await Producto.find({id_rubro:id_rubro});
-        var productosCantidad =[];
+        var productos_mostrar =[];
         productos.forEach((producto)=>{
             if(producto.cantidad>0){
-                productosCantidad.push(producto);
+                productos_mostrar.push(producto);
             }
         });
-        res.render('producto/todos',{productosCantidad});
+        res.render('producto/todos',{productos_mostrar});
     }else{
         req.flash('error_msg', 'Actualmente no hay stock de los productos de este rubro!');
         res.render('producto/todos');
     }
     
+});
+
+router.post('/producto/todos',async(req, res)=>{
+    const {busqueda} = req.body;    
+    const servicio = await Servicio.findOne({nombre:busqueda});
+    if(servicio){
+        const id_servicio = servicio.id;
+        const rubros = await Rubro.find({id_servicio:id_servicio});
+        console.log(rubros);
+        var productos_mostrar = [];
+        rubros.forEach(async (rubro)=>{
+            const id_rubro = rubro.id;
+            const productos = await Producto.find({id_rubro:id_rubro});
+            console.log(productos);
+            productos.forEach((producto)=>{
+                if(producto.cantidad>0){
+                    productos_mostrar.push(producto);
+                }
+            });
+            console.log('productos a mostrar',productos_mostrar);
+        });
+        res.render('producto/todos',{productos_mostrar});
+    }else{
+        const rubro = await Rubro.findOne({nombre:busqueda});
+        if(rubro){
+            const id_rubro = rubro.id;
+            const productos = await Producto.find({id_rubro:id_rubro});
+            var productos_mostrar =[];
+            productos.forEach((producto)=>{
+                if(producto.cantidad>0){
+                    productos_mostrar.push(producto);
+                }
+            });
+            res.render('producto/todos',{productos_mostrar});
+        }else{
+            const producto = await Producto.findOne({nombre:busqueda})
+            if(producto){
+                id = producto.id
+                var url = ('/producto/detalle/'+id);
+                res.redirect(url);
+            }else{
+                req.flash('error_msg', 'No existe ningun producto, rubro o servicio con ese nombre!');
+                res.redirect('/');
+            }
+        }
+    }
 });
 
 router.get('/producto/nuevo',(req, res)=>{

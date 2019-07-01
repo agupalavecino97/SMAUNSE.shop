@@ -179,6 +179,7 @@ router.post('/usuario/envio_pago',isAuthenticated,async(req, res) =>{
     await metodo_pago.save();
     const id_formaDePago = metodo_pago.id;
     await Venta.findByIdAndUpdate(venta.id,{id_formaDePago,metodoDeEnvio,direccion});
+    console.log(venta);
     res.redirect('/usuario/confirmar');
 });
 
