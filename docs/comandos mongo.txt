@@ -1,0 +1,12 @@
+Instalar mongo:
+    sudo apt install mongodb
+    sudo service mongodb start / sudo start mongodb 
+    mongo
+    importar base de datos:
+        mongorestore --db SMAUNSE-shop /home/gonzalo/Escritorio/SMAUNSE-shop
+        ó 
+        crear carpeta dump
+        poner carpeta con todos archivos .bson y .json dentro de dump
+        posicionarme en la carpeta padre de dump y ejecutar mongostore
+
+https://o7planning.org/en/10279/importing-and-exporting-mongodb-database
