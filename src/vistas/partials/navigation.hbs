@@ -1,5 +1,6 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="margin-bottom: 50px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="margin-bottom: 50px;">
     <div class="container">
+<<<<<<< HEAD
       <a class="navbar-brand" href="/">SMAUNSE</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,35 +41,61 @@
                 <input type="text" class="form-control" placeholder="Busca Productos, Marcas o rubros" id="busqueda" name="busqueda">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+=======
+        <a class="navbar-brand" href="/">SMAUNSE Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                {{#each servicios}}
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{nombre}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {{#each rubros}}
+                            <a class="dropdown-item" href="/producto/todos/{{nombre}}">{{nombre}}</a>  
+                            {{/each}}
+                        </div>
+                        </li>
+                {{/each}}
+            </ul>
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Busca Productos, Marcas o rubros" name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+>>>>>>> 0fb1aea6f3614a1554040bd07d40986987e8ebbc
                 </div>
-            </div>
-          </form>
-        </ul>
-      {{#if user}}  
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/compras">Mis compras</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/carrito">Mi carrito</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/cuenta">Mi cuenta</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/logout">Salir</a>
-          </li>
-        </ul>
-      {{else}}
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/login">Ingresar</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/usuario/registro">Registrarse</a>
-          </li>
-        </ul>
-      {{/if}}
-      </div>
-    </div>
-  </nav>
+            </form>
+            
+            {{#if user}}  
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/compras">Mis compras</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/carrito">Mi carrito</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/cuenta">Mi cuenta</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/usuario/logout">Salir</a>
+                </li>
+                </ul>
+                {{else}}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/usuario/login">Ingresar</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/usuario/registro">Registrarse</a>
+                        </li>
+                    </ul>
+            {{/if}}
+        </div>
+    </div>{{!-- container --}}
+</nav>

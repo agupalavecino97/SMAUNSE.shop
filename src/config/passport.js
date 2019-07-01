@@ -1,4 +1,4 @@
-const passport = require('passport'); //este modulo te da metodos para autenticas a ususarios mediante facebook, twitter, etc 
+const passport = require('passport'); //este modulo te da metodos para autenticaR a ususarios mediante facebook, twitter, etc 
 const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/Usuario');
