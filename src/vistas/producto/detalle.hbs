@@ -7,9 +7,9 @@
             <div class="card-body">
                 <p>{{producto.codigo_barra}}</p>
                 <form action="/producto/carrito" method="POST">
-                    <input type="hidden" value="{{id}}" name="id_producto">
-                    <button class="btn btn-success" type="submit">Agregar al carrito</button>
-                </form>>
+                    <input type="hidden" value="{{producto.id}}" name="id_producto">
+                    <button class="btn btn-sm btn-outline-success" type="submit">Agregar al carrito</button>
+                </form>
             </div>
         </div>
     </div>        
