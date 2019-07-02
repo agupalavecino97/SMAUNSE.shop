@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/Usuario');
 const passport = require('passport');
-const Porducto = require('../models/Producto');
+const Producto = require('../models/Producto');
 const Venta = require('../models/Venta');
 const VentaProducto = require('../models/Venta-Producto');
 const Metodo_pago = require('../models/Metodo_pago');
@@ -114,7 +114,7 @@ router.get('/usuario/carrito', isAuthenticated, async (req, res)=>{
         const id_venta=venta._id;
         const productos= await VentaProducto.find({id_venta:id_venta});
         productos.forEach(async(producto)=>{
-            const prod=await Porducto.findById(producto.id_producto);
+            const prod=await Producto.findById(producto.id_producto);
             producto.nombre=prod.nombre;
             producto.subtotal=producto.precio_venta*producto.cantidad
         });
