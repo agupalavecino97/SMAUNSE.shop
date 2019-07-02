@@ -125,26 +125,55 @@ router.get('/usuario/carrito', isAuthenticated, async (req, res)=>{
     
 });
 
+// router.post('/usuario/carrito/modificar/:id',isAuthenticated,async (req, res) =>{
+//     const id_venta_producto=req.params.id;
+//     const cantidad=req.body.cantidad;
+//     const venta = await VentaProducto.findById(id_venta_producto);
+//     const id_venta = venta.id_venta;
+//     const id_producto = venta.id_producto;
+//     const producto = await Producto.findById(id_producto);
+//     if(producto.cantidad > cantidad){
+//         const venta_padre = await Venta.findById(id_venta);
+//         var monto = venta_padre.monto;
+//         await VentaProducto.findByIdAndUpdate(id_venta_producto,{cantidad});
+//         if(cantidad>venta.cantidad){
+//             const cantiadad_a_sumar = cantidad-venta.cantidad;
+//             monto = monto+(cantiadad_a_sumar*venta.precio_venta);
+            
+//         }else{
+//             const cantiadad_a_restar = venta.cantidad-cantidad;
+//             monto = monto-(cantiadad_a_restar*venta.precio_venta);
+//         } 
+//         console.log('hola');
+//         await Venta.findOneAndUpdate(id_venta,{monto:monto})
+//         res.redirect('/usuario/carrito');
+//     }else{
+//         req.flash('error_msg', 'La cantidad ingresada supera el stock existente, por favor ingresa una menor!');
+//         res.redirect('/usuario/carrito');
+//     }
+    
+// });
+
 router.post('/usuario/carrito/modificar/:id',isAuthenticated,async (req, res) =>{
     const id_venta_producto=req.params.id;
     const cantidad=req.body.cantidad;
-    const venta = await VentaProducto.findById(id_venta_producto);
-    const id_venta = venta.id_venta;
-    const id_producto = venta.id_producto;
+    const venta_producto = await VentaProducto.findById(id_venta_producto);
+    console.log('detalle de venta:',venta_producto);
+    const id_producto = venta_producto.id_producto;
     const producto = await Producto.findById(id_producto);
     if(producto.cantidad > cantidad){
-        const venta_padre = await Venta.findById(id_venta);
+        const venta_padre = await Venta.findById(venta_producto.id_venta);
+        console.log('venta padre',venta_padre);
         var monto = venta_padre.monto;
-        await VentaProducto.findByIdAndUpdate(id_venta_producto,{cantidad});
-        if(cantidad>venta.cantidad){
-            const cantiadad_a_sumar = cantidad-venta.cantidad;
-            monto = monto+(cantiadad_a_sumar*venta.precio_venta);
-            
+        if(cantidad>venta_producto.cantidad){
+            const cantiadad_a_sumar = cantidad-venta_producto.cantidad;
+            monto = monto+(cantiadad_a_sumar*venta_producto.precio_venta);   
         }else{
-            const cantiadad_a_restar = venta.cantidad-cantidad;
-            monto = monto-(cantiadad_a_restar*venta.precio_venta);
+            const cantiadad_a_restar = venta_producto.cantidad-cantidad;
+            monto = monto-(cantiadad_a_restar*venta_producto.precio_venta);
         } 
-        await Venta.findOneAndUpdate(id_venta,{monto:monto})
+        await VentaProducto.findByIdAndUpdate(id_venta_producto,{cantidad});
+        await Venta.findByIdAndUpdate(venta_producto.id_venta,{monto:monto})
         res.redirect('/usuario/carrito');
     }else{
         req.flash('error_msg', 'La cantidad ingresada supera el stock existente, por favor ingresa una menor!');
@@ -179,7 +208,6 @@ router.post('/usuario/envio_pago',isAuthenticated,async(req, res) =>{
     await metodo_pago.save();
     const id_formaDePago = metodo_pago.id;
     await Venta.findByIdAndUpdate(venta.id,{id_formaDePago,metodoDeEnvio,direccion});
-    console.log(venta);
     res.redirect('/usuario/confirmar');
 });
 
