@@ -10,7 +10,6 @@ const session = require('express-session');
 const app = express();
 require('./database');
 require('./config/passport');
-
 //configuraciones
 
 app.set('port',process.env.PORT || 3000);
@@ -45,9 +44,8 @@ app.use(session({
   app.use(flash());
   app.use(passport.initialize());
   app.use(passport.session());
-  
 
-
+     
 //variables globales 
 app.use((req, res, next)=>{
     //para guardar una dato de manera global
@@ -58,8 +56,6 @@ app.use((req, res, next)=>{
     app.locals.user = req.user;
     next();
 });
-
-
 //rutas
 app.use(require('./routes/index'));
 app.use(require('./routes/usuario'));

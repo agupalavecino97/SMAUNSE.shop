@@ -6,28 +6,38 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                {{#each servicios}}
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{nombre}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {{#each rubros}}
-                            <a class="dropdown-item" href="/producto/todos/{{nombre}}">{{nombre}}</a>  
-                            {{/each}}
-                        </div>
-                        </li>
-                {{/each}}
-            </ul>
-            <form class="navbar-form" role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Busca Productos, Marcas o rubros" name="q">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfumeria </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/producto/todos/hombres">Hombres</a>                
+                        <a class="dropdown-item" href="/producto/todos/mujeres">Mujeres</a> 
+                        <a class="dropdown-item" href="/producto/todos/niños">Niños</a>  
                     </div>
+                </li>           
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Regaleria </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/producto/todos/decoracion">Decoracion</a>   
+                    <a class="dropdown-item" href="/producto/todos/niños">Niños</a>  
+                    <a class="dropdown-item" href="/producto/todos/viajes">Viajes</a>  
                 </div>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Optica </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/producto/todos/anteojos">Lentes</a>      
+                    <a class="dropdown-item" href="/producto/todos/lentes">Lentes de sol</a>  
+                    <a class="dropdown-item" href="/producto/todos/armazones">Armazones</a>  
+                </div>
+                </li>
+       
+            <form action="/producto/todos" method="POST" class="navbar-form">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Busca Productos, Marcas o rubros" id="busqueda" name="busqueda">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
             </form>
-            
+                 </ul>
             {{#if user}}  
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
