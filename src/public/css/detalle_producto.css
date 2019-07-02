@@ -1,0 +1,19 @@
+.detalle_producto{
+    padding: 50px;
+}
+
+.detalle_producto .card{
+    width: 100%
+}
+
+.btn.agregar_carrito{
+    width: 100%;
+}
+
+.detalle_producto .detalle-footer{
+    padding: 15px 25px;
+}
+
+.detalle_producto  .table{
+        width: 50%;
+} 

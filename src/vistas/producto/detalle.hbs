@@ -1,15 +1,57 @@
-<div class="row">
+<div class="row detalle_producto">
     <div class="card">
         {{!-- <img src="..." class="card-img-top" alt="..."> --}}
         <div class="card-body">
-            <h6 class="card-title">{{producto.nombre}}</h6>
-            <h5 class="card-title">${{producto.precio}}</h5>
-            <div class="card-body">
-                <p>{{producto.codigo_barra}}</p>
-                <form action="/producto/carrito" method="POST">
-                    <input type="hidden" value="{{producto.id}}" name="id_producto">
-                    <button class="btn btn-sm btn-outline-success" type="submit">Agregar al carrito</button>
-                </form>
+            <div class="row">
+                <div class="col-sm-8">
+                    <img class="card-img-top" src="/img/productos/{{producto.nombre}}.jpg" alt="">
+                </div>
+                <div class="col-sm-4">
+                    <h2 class="card-title">{{producto.nombre}}</h2>
+                    <h3 class="card-title">${{producto.precio}}</h3>
+                    <p></p>
+                    <p>codigo producto: {{producto.codigo_barra}}</p>
+                    <form action="/producto/carrito" method="POST">
+                        <input type="hidden" value="{{producto.id}}" name="id_producto">
+                        <button class="btn btn-sm btn-success agregar_carrito mt-5" type="submit">Agregar al carrito</button>
+                    </form>
+                </div>
+            </div>
+            
+            
+            <div class="detalle-footer">
+                <h5>Detalle del producto</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt sint et iste? Dolor accusamus aspernatur architecto non autem hic alias tempora nulla, cum iure animi optio pariatur necessitatibus unde nostrum.</p>
+                <div class="prm">
+                    <table class="prd-attributes mbl prm table table-striped table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="name">Material </td>
+                                <td>Lona</td>
+                            </tr>
+                            <tr>
+                                <td class="name">Color</td>
+                                <td>Negro</td>
+                            </tr>
+                            <tr>
+                                <td class="name">Acceso</td>
+                                <td>Cordón</td>
+                            </tr>
+                            <tr>
+                                <td class="name">Material interior</td>
+                                <td>Tela</td>
+                            </tr>
+                            <tr>
+                                <td class="name">Suela</td>
+                                <td>Goma</td>
+                            </tr>
+                            <tr>
+                                <td class="name">Código Artículo</td>
+                                <td>BO787SH61SCWAR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>        
