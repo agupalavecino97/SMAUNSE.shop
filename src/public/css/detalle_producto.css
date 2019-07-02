@@ -1,3 +1,22 @@
+.producto_todos .group{
+    display: inline-flex;
+    vertical-align: middle;
+}
+.producto_todos .card-title{
+    text-transform: capitalize;
+}
+.producto_todos h1{
+    margin-bottom: 20px;
+}
+
+.producto_todos .card a.img-container{
+    height: 180px;
+    overflow: hidden;
+}
+.producto_todos .btn.agregar_carrito{
+        margin-left: 65px;
+}
+
 .detalle_producto{
     padding: 50px;
 }
@@ -6,7 +25,8 @@
     width: 100%
 }
 
-.btn.agregar_carrito{
+
+.detalle_producto .btn.agregar_carrito{
     width: 100%;
 }
 
@@ -14,6 +34,9 @@
     padding: 15px 25px;
 }
 
-.detalle_producto  .table{
-        width: 50%;
+.detalle_producto .table{
+        width: 40%;
 } 
+.detalle_producto h2{
+    text-transform: capitalize;
+}
