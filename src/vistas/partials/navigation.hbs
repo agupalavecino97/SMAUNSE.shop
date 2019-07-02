@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="margin-bottom: 50px;">
-    <div class="container">
-        <a class="navbar-brand" href="/">SMAUNSE Shop</a>
+    <div class="container-fluid">
+        {{!-- <a class="navbar-brand" href="/">SMAUNSE.Shop</a> --}}
+        <img class="logo mr-3" src="/img/logo.png" alt="SMAUNSE.shop">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,35 +24,39 @@
                 </div>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Optica </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/producto/todos/anteojos">Lentes</a>      
-                    <a class="dropdown-item" href="/producto/todos/lentes">Lentes de sol</a>  
-                    <a class="dropdown-item" href="/producto/todos/armazones">Armazones</a>  
-                </div>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Optica </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/producto/todos/anteojos">Lentes</a>      
+                        <a class="dropdown-item" href="/producto/todos/lentes">Lentes de sol</a>  
+                        <a class="dropdown-item" href="/producto/todos/armazones">Armazones</a>  
+                    </div>
                 </li>
-       
+            </ul>
+
             <form action="/producto/todos" method="POST" class="navbar-form">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Busca Productos, Marcas o rubros" id="busqueda" name="busqueda">
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                <div class="buscador input-group ">
+                    <input type="text" class="form-control" placeholder="Busca productos, marcas..." id="busqueda" name="busqueda">
+                    <div class="input-group-prepend">
+                        {{!-- <div class="input-group-text"><i class="fa fa-search"></i></div> --}}
+                        <button class="btn btn-default btn-busqueda" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
             </form>
-                 </ul>
+                
             {{#if user}}  
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/usuario/compras">Mis compras</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/usuario/carrito">Mi carrito</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/usuario/cuenta">Mi cuenta</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/usuario/logout">Salir</a>
-                </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/usuario/carrito"><i class="fa fa-shopping-cart"></i> Carrito</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/usuario/compras"><i class="fa fa-check-circle"></i> Mis compras</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/usuario/cuenta"><i class="fa fa-user-circle"></i> Mi Cuenta</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/usuario/logout"><i class="fa fa-sign-out"></i></a>
+                    </li>
                 </ul>
                 {{else}}
                     <ul class="navbar-nav ml-auto">
