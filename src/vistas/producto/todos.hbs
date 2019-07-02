@@ -2,23 +2,24 @@
 <!-- AQUI VA LA VISTA DEL ADMINISTRADOR-->
 {{else}}
 <div class="row producto_todos" >
+    <div class="col-sm-12">
+        <h1>Listado de Productos</h1>
+    </div>
     {{#each productos_mostrar}}
     <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
+            <a href="#" class="img-container"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title text-dark">{{nombre}}</h4>
                 <h4 class="card-title">${{precio}}</h4>
             </div>
             <div class="card-footer">
-                <div class="btn-group">
-                    <a href="/producto/detalle/{{id}}" type="submit button" class="btn btn-sm btn-outline-warning">Ver detalle</a>
-                    <div style="padding-left:140px">
-                        <form action="/producto/carrito" method="POST">
-                            <input type="hidden" value="{{id}}" name="id_producto">
-                            <button class="btn btn-sm btn-outline-success" type="submit">Agregar al carrito</button>
-                        </form>
-                    </div>
+                <div class="group">
+                    <a href="/producto/detalle/{{id}}" type="submit button" class="btn btn-sm btn-warning">Ver detalle</a>
+                    <form action="/producto/carrito" method="POST">
+                        <input type="hidden" value="{{id}}" name="id_producto">
+                        <button class="btn btn-sm btn-outline-success agregar_carrito" type="submit">Agregar al carrito</button>
+                    </form>
                 </div>
             </div>
         </div>
