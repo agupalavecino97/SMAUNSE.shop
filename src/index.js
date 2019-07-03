@@ -49,11 +49,11 @@ app.use(session({
 //variables globales 
 app.use((req, res, next)=>{
     //para guardar una dato de manera global
-    app.locals.signinMessage = req.flash('signinMessage');
-    app.locals.signupMessage = req.flash('signupMessage');
+    res.locals.signinMessage = req.flash('signinMessage');
+    res.locals.signupMessage = req.flash('signupMessage');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.success_msg = req.flash('success_msg');
-    app.locals.user = req.user;
+    res.locals.user = req.user;
     next();
 });
 //rutas
