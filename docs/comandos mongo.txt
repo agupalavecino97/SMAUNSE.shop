@@ -16,4 +16,5 @@ https://gist.github.com/AlejoJamC/b8635af765ac7495c4931403b97a0d78
 
 cd C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe
 
+en el directorio \MongoDB\Server\4.0\bin:
 .\mongorestore --db SMAUNSE-shop D:\Gonzalo\desarrollo\SMAUNSE.shop\db\dump\SMAUNSE-shop

@@ -204,9 +204,9 @@ router.post('/usuario/confirmar',isAuthenticated,async(req, res) =>{
     const id_venta = venta.id;
     const productos = await VentaProducto.find({id_venta:id_venta});
     productos.forEach(async(producto)=>{
-        const producto_original = await Porducto.findById(producto.id_producto);
+        const producto_original = await Producto.findById(producto.id_producto);
         var cantidad = producto_original.cantidad-producto.cantidad;
-        await Porducto.findByIdAndUpdate(producto.id_producto,{cantidad});
+        await Producto.findByIdAndUpdate(producto.id_producto,{cantidad});
     });
     req.flash('success_msg', 'Compra realizada con exito!');
     res.redirect('/');
