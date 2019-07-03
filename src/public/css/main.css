@@ -25,6 +25,9 @@ body {
     border-radius: 10px;
   }
   
+  .mx-auto{
+        margin: 50px;
+  }
   .bg-image-full {
     background: no-repeat center center scroll;
     -webkit-background-size: cover;

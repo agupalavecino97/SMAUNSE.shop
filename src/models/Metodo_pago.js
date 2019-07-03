@@ -3,7 +3,7 @@ const {Schema}= mongoose;
 
 const Metodo_pagoSchema = new Schema({
     numero_tarjeta: {type: Number, required:true},
-    vencimiento: {type: Number, required:true},
+    vencimiento: {},
     cuotas: {type: Number, required:true},
     id_venta: {type: String, required:true} 
 });

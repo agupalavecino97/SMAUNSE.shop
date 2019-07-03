@@ -1,3 +1,10 @@
 #carrito h6{
     text-transform: capitalize;
 }
+
+#carrito .img-container{
+    width: 100px; height: 100px;
+}
+#carrito img{
+    width: 100%;
+}
