@@ -1,44 +1,46 @@
-<form action="/usuario/confirmar" method="POST">
-    <div class="container">
-        <div class="row vdivide jumbotron">
-            <div class="col-sm-12 mb-3">
-                <h3>Detalle de Compra</h3>
-            </div>
-            <div class="col-sm-8 offset-sm-2">
-                
-                <div class="card">
-                    <div class="card-body">
-                        <h5><i class="fa fa-shopping-cart"></i> Detalle de Productos</h5>
-                        <h6>Cantidad de Productos: {{cant_productos}}</h6>
-                        <div class="productos">
-                            <h6>Total a pagar</h6>
-                            <p>${{venta.monto}}</p>
-                        </div>
-                        <hr>
+<div class="container">
+    <form action="/usuario/confirmar" method="POST">
+        <div class="container">
+            <div class="row vdivide jumbotron">
+                <div class="col-sm-12 mb-3">
+                    <h3>Detalle de Compra</h3>
+                </div>
+                <div class="col-sm-8 offset-sm-2">
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5><i class="fa fa-shopping-cart"></i> Detalle de Productos</h5>
+                            <h6>Cantidad de Productos: {{cant_productos}}</h6>
+                            <div class="productos">
+                                <h6>Total a pagar</h6>
+                                <p>${{venta.monto}}</p>
+                            </div>
+                            <hr>
 
-                        <h5><i class="fa fa-truck"></i> Detalle de Envío</h5>
-                        <div class="container content-center">
-                            <h6>Método de envio</h6> 
-                            <p>{{venta.metodoDeEnvio}}</p>
-                            <h6>Dirección</h6>
-                            <p>{{venta.direccion}}</p>
-                        </div>
-                        <hr>
+                            <h5><i class="fa fa-truck"></i> Detalle de Envío</h5>
+                            <div class="container content-center">
+                                <h6>Método de envio</h6> 
+                                <p>{{venta.metodoDeEnvio}}</p>
+                                <h6>Dirección</h6>
+                                <p>{{venta.direccion}}</p>
+                            </div>
+                            <hr>
 
-                        <h5><i class="fa fa-credit-card"></i> Detalle de Pago</h5>
-                        <div class="container">
-                            <h6>Número de tarjeta</h6>
-                            <p>{{metodo_pago.numero_tarjeta}}</p>
-                            <h6>Vencimineto</h6>
-                            <p>{{metodo_pago.vencimiento}}</p>
-                            <h6>Cantidad de cuotas</h6>
-                            <p>{{metodo_pago.cuotas}}</p>
+                            <h5><i class="fa fa-credit-card"></i> Detalle de Pago</h5>
+                            <div class="container">
+                                <h6>Número de tarjeta</h6>
+                                <p>{{metodo_pago.numero_tarjeta}}</p>
+                                <h6>Vencimineto</h6>
+                                <p>{{metodo_pago.vencimiento}}</p>
+                                <h6>Cantidad de cuotas</h6>
+                                <p>{{metodo_pago.cuotas}}</p>
+                            </div>
                         </div>
                     </div>
+                    <button class="btn btn-success agregar_carrito mt-3 mb-3" style="float: right;"
+                        type="submit"><i class="fa fa-check"></i> Finalizar Compra</button>
                 </div>
-                <button class="btn btn-success agregar_carrito mt-3 mb-3" style="float: right;"
-                    type="submit">Finalizar Compra</button>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

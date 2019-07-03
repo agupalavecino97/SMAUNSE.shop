@@ -1,72 +1,74 @@
-{{#if productos}}
-    <div id="carrito" class="container" style="margin-top: 20px">
-        <h3>Carrito de Compras</h3>
-        <div class="card">
-            <table class="table table-hover">
-                <thead class="text-muted">
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col" width="120">Precio Un.</th>
-                        <th scope="col" width="120">Cantidad</th>
-                        <th scope="col" width="120">Subtotal</th>   
-                        <th scope="col" width="120"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each productos}}
-                    <tr>
-                        <td>
-                            <div class="img-container">
-                                <img src="/img/productos/{{nombre}}.jpg">
-                            </div>
-                        </td>
-                        <td>
-                            <h6 class="title text-truncate">{{nombre}}</h6>
-                        </td>
-                        <td>
-                            <h4 class="title"> $ {{precio_venta}} x</h4>
-                        </td>
-                        <td>
-                            <form action="/usuario/carrito/modificar/{{id}}" method="POST">
-                                <div class="form-row">
-                                    <div class="col"><input type="number" class="form-control" name="cantidad" min="1" step="1" value="{{cantidad}}"></div>
-                                    <div class="col"><button type="submit" class="btn btn-outline-warning btn-sm mt-1" style="float: right;"> Aplicar</button></div>
+<div class="container">
+    {{#if productos}}
+        <div id="carrito" class="container" style="margin-top: 20px">
+            <h3>Carrito de Compras</h3>
+            <div class="card">
+                <table class="table table-hover">
+                    <thead class="text-muted">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col" width="120">Precio Un.</th>
+                            <th scope="col" width="120">Cantidad</th>
+                            <th scope="col" width="120">Subtotal</th>   
+                            <th scope="col" width="120"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each productos}}
+                        <tr>
+                            <td>
+                                <div class="img-container">
+                                    <img src="/img/productos/{{nombre}}.jpg">
                                 </div>
-                            </form>
-                        </td>
-                        <td>
-                            <h4 class="title"> $ {{subtotal}}</h4>
-                        </td>
-                        <td>
-                            <form action="/usuario/carrito/eliminar/{{id}}" method="POST">
-                                <input name="monto" type="hidden" value="{{monto}}">
-                                 <input name="subtotal" type="hidden" value="{{subtotal}}">
-                                <button type="submit" class="btn btn-outline-danger" class="btn-sm"> Eliminar</button>
-                            </form>          
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table> 
-            <hr>
-            <div class="ml-auto p-3">
-                <h4>Total: $ {{monto}}</h4>
+                            </td>
+                            <td>
+                                <h6 class="title text-truncate">{{nombre}}</h6>
+                            </td>
+                            <td>
+                                <h4 class="title"> $ {{precio_venta}} x</h4>
+                            </td>
+                            <td>
+                                <form action="/usuario/carrito/modificar/{{id}}" method="POST">
+                                    <div class="form-row">
+                                        <div class="col"><input type="number" class="form-control" name="cantidad" min="1" step="1" value="{{cantidad}}"></div>
+                                        <div class="col"><button type="submit" class="btn btn-outline-warning btn-sm mt-1" style="float: right;"> Aplicar</button></div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <h4 class="title"> $ {{subtotal}}</h4>
+                            </td>
+                            <td>
+                                <form action="/usuario/carrito/eliminar/{{id}}" method="POST">
+                                    <input name="monto" type="hidden" value="{{monto}}">
+                                    <input name="subtotal" type="hidden" value="{{subtotal}}">
+                                    <button type="submit" class="btn btn-outline-danger" class="btn-sm"> Eliminar</button>
+                                </form>          
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table> 
+                <hr>
+                <div class="ml-auto p-3">
+                    <h4>Total: $ {{monto}}</h4>
+                </div>
+                <div class="mt-3 mb-3 mr-3 ml-3">
+                    <a href="/usuario/envio_pago" type="submit" class="btn btn-primary" style="float: right"><i class="fa fa-check-circle"></i> Confirmar Carrito</a>
+                </div>
             </div>
-            <div class="mt-3 mb-3 mr-3 ml-3">
-                <a href="/usuario/envio_pago" type="submit" class="btn btn-primary" style="float: right">Confirmar Carrito</a>
-            </div>
+        
         </div>
-       
-    </div>
- 
+    
 
-{{else}}
-    <div class="row">
-        <div class="card mx-auto">
-            <div class="card-body">
-                <p class="lead">Aún no hay productos cargados al carrito</p>
+    {{else}}
+        <div class="row">
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <p class="lead">Aún no hay productos cargados al carrito</p>
+                </div>
             </div>
         </div>
-    </div>
-{{/if}}
+    {{/if}}
+</div>

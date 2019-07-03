@@ -1,35 +1,40 @@
 {{#if user.prioridad}}
 <!-- AQUI VA LA VISTA DEL ADMINISTRADOR-->
 {{else}}
-<div class="row producto_todos" >
-    <div class="col-sm-12">
-        <h3>Listado de Productos</h3>
-    </div>
-    {{#each productos_mostrar}}
-    <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-            <a href="/producto/detalle/{{id}}" class="img-container"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
-            <div class="card-body">
-                <h4 class="card-title text-dark">{{nombre}}</h4>
-                <h4 class="card-title">${{precio}}</h4>
-            </div>
-            <div class="card-footer">
-                <div class="group">
-                    <a href="/producto/detalle/{{id}}" type="submit button" class="btn btn-sm btn-warning">Ver detalle</a>
-                    <form action="/producto/carrito" method="POST">
-                        <input type="hidden" value="{{id}}" name="id_producto">
-                        <button class="btn btn-sm btn-outline-success agregar_carrito" type="submit">Agregar al carrito</button>
-                    </form>
+<div class="container">
+    <div class="row producto_todos" >
+        <div class="col-sm-12">
+            {{#if productos_mostrar}}
+                <h3>Listado de Productos</h3>
+            {{/if}}
+        </div>
+        {{#each productos_mostrar}}
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="/producto/detalle/{{id}}" class="img-container"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title text-dark">{{nombre}}</h4>
+                    <h4 class="card-title">${{precio}}</h4>
+                </div>
+                <div class="card-footer">
+                    <div class="group">
+                        <a href="/producto/detalle/{{id}}" type="submit button" class="btn btn-sm btn-warning">Ver detalle</a>
+                        <form action="/producto/carrito" method="POST">
+                            <input type="hidden" value="{{id}}" name="id_producto">
+                            <button class="btn btn-sm btn-outline-success agregar_carrito" type="submit">Agregar al carrito</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    {{else}}
-        <div class="card mx-auto">
-            <div class="card-body">
-                <p class="lead">No hay productos disponibles.</p>
+        {{else}}
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <p class="lead">No hay productos disponibles.</p>
+                    <a class="btn btn-sm btn-outline-primary" style="float: right;" href="/">Volver</a>
+                </div>
             </div>
-        </div>
-    {{/each}}   
+        {{/each}}   
+    </div>
 </div>
 {{/if}}

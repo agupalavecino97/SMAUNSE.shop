@@ -64,3 +64,11 @@ body {
   [type=button], [type=reset], [type=submit]{
         -webkit-appearance: none;
   }
+
+  div.fondo-negro{
+        width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: list-item;
+    position: absolute;
+  }
