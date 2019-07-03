@@ -125,34 +125,6 @@ router.get('/usuario/carrito', isAuthenticated, async (req, res)=>{
     
 });
 
-// router.post('/usuario/carrito/modificar/:id',isAuthenticated,async (req, res) =>{
-//     const id_venta_producto=req.params.id;
-//     const cantidad=req.body.cantidad;
-//     const venta = await VentaProducto.findById(id_venta_producto);
-//     const id_venta = venta.id_venta;
-//     const id_producto = venta.id_producto;
-//     const producto = await Producto.findById(id_producto);
-//     if(producto.cantidad > cantidad){
-//         const venta_padre = await Venta.findById(id_venta);
-//         var monto = venta_padre.monto;
-//         await VentaProducto.findByIdAndUpdate(id_venta_producto,{cantidad});
-//         if(cantidad>venta.cantidad){
-//             const cantiadad_a_sumar = cantidad-venta.cantidad;
-//             monto = monto+(cantiadad_a_sumar*venta.precio_venta);
-            
-//         }else{
-//             const cantiadad_a_restar = venta.cantidad-cantidad;
-//             monto = monto-(cantiadad_a_restar*venta.precio_venta);
-//         } 
-//         console.log('hola');
-//         await Venta.findOneAndUpdate(id_venta,{monto:monto})
-//         res.redirect('/usuario/carrito');
-//     }else{
-//         req.flash('error_msg', 'La cantidad ingresada supera el stock existente, por favor ingresa una menor!');
-//         res.redirect('/usuario/carrito');
-//     }
-    
-// });
 
 router.post('/usuario/carrito/modificar/:id',isAuthenticated,async (req, res) =>{
     const id_venta_producto=req.params.id;
@@ -236,6 +208,7 @@ router.post('/usuario/confirmar',isAuthenticated,async(req, res) =>{
         var cantidad = producto_original.cantidad-producto.cantidad;
         await Porducto.findByIdAndUpdate(producto.id_producto,{cantidad});
     });
+    req.flash('success_msg', 'Compra realizada con exito!');
     res.redirect('/');
 });
 
@@ -246,7 +219,6 @@ router.get('/usuario/compras',isAuthenticated,async(req, res) =>{
     //     var pago = Metodo_pago.findById(venta.id_formaDePago);
     //     venta.forma_de_pago=pago.nombre;
     // }); esto se tiene que haces cuendo el metodo de pago tenga un nombre xd
-    console.log(ventas);
     res.render('usuario/compras',{ventas});
 });
 
