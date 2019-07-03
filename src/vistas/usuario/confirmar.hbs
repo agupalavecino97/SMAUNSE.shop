@@ -1,36 +1,44 @@
 <form action="/usuario/confirmar" method="POST">
     <div class="container">
-    <div class="row vdivide">
-        <div class="col-sm-7 text-center jumbotron mt-5">
-            <h5>Detalle de Envio</h5>
-            <div class="container content-center">
-                <h6>Metodo de envio</h6> 
-                <input type="text" value="{{venta.metodoDeEnvio}}">
-                <h6>Direccion</h6>
-                <input type="text" value="{{venta.direccion}}">
-                <button class="btn btn-outline-warning">Modificar</button>
+        <div class="row vdivide jumbotron">
+            <div class="col-sm-12 mb-3">
+                <h3>Detalle de Compra</h3>
+            </div>
+            <div class="col-sm-8 offset-sm-2">
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h5><i class="fa fa-shopping-cart"></i> Detalle de Productos</h5>
+                        <h6>Cantidad de Productos: {{cant_productos}}</h6>
+                        <div class="productos">
+                            <h6>Total a pagar</h6>
+                            <p>${{venta.monto}}</p>
+                        </div>
+                        <hr>
+
+                        <h5><i class="fa fa-truck"></i> Detalle de Envío</h5>
+                        <div class="container content-center">
+                            <h6>Método de envio</h6> 
+                            <p>{{venta.metodoDeEnvio}}</p>
+                            <h6>Dirección</h6>
+                            <p>{{venta.direccion}}</p>
+                        </div>
+                        <hr>
+
+                        <h5><i class="fa fa-credit-card"></i> Detalle de Pago</h5>
+                        <div class="container">
+                            <h6>Número de tarjeta</h6>
+                            <p>{{metodo_pago.numero_tarjeta}}</p>
+                            <h6>Vencimineto</h6>
+                            <p>{{metodo_pago.vencimiento}}</p>
+                            <h6>Cantidad de cuotas</h6>
+                            <p>{{metodo_pago.cuotas}}</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success agregar_carrito mt-3 mb-3" style="float: right;"
+                    type="submit">Finalizar Compra</button>
             </div>
         </div>
-        <div class="col-sm-4 text-center jumbotron mt-2">
-            <h5>Detalle de Compra</h5>
-            <h6>Cantidad de Productos: {{cant_productos}}</h6> 
-            <button class="btn btn-outline-warning">Modificar</button>
-            <h6>Total a pagar</h6> 
-            <input type="text" value="{{venta.monto}}">
-            <div class="form-group ml=auto">
-                <button type='submit' class="btn btn-success ">Confirmar</button>
-            </div>
-        </div>
-        <div class="col-sm-7 text-center jumbotron mt-5">
-            <h5>Detalle de Pago</h5>
-            <div class="container"> 
-                <h6>Nuemro de tarjeta</h6> 
-                <input type="text" value="{{metodo_pago.numero_tarjeta}}">
-                <h6>Vencimineto</h6> 
-                <input type="text" value="{{metodo_pago.vencimiento}}">
-                <h6>Catidad de cuotas</h6> 
-                <input type="text" value="{{metodo_pago.cuotas}}">
-                <button class="btn btn-outline-warning">Modificar</button>
-            </div>
     </div>
 </form>

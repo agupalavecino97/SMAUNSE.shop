@@ -3,12 +3,12 @@
 {{else}}
 <div class="row producto_todos" >
     <div class="col-sm-12">
-        <h1>Listado de Productos</h1>
+        <h3>Listado de Productos</h3>
     </div>
     {{#each productos_mostrar}}
     <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-            <a href="#" class="img-container"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
+            <a href="/producto/detalle/{{id}}" class="img-container"><img class="card-img-top" src="/img/productos/{{nombre}}.jpg" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title text-dark">{{nombre}}</h4>
                 <h4 class="card-title">${{precio}}</h4>
