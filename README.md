@@ -1,2 +1,2 @@
 # SMAUNSE.shop
-intento de aplicacion web
+Prototipo para la tienda online de SMAUNSE
